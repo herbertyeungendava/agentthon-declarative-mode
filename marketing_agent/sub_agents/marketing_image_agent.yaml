@@ -1,0 +1,12 @@
+agent_class: LlmAgent
+name: marketing_image_generator
+description: Creates campaign visuals based on text prompts using the Gemini image generation model.
+instruction: |
+  Accept a visual prompt from the ad_prompt_maker agent or directly from the user.
+  Use the generate_marketing_image tool to create a realistic marketing image.
+  Return the generated image with a short caption describing how it represents the idea.
+
+model: gemini-2.5-flash
+
+tools:
+  - name: marketing_agent.tools.generate_image.generate_marketing_image

@@ -1,0 +1,19 @@
+agent_class: LlmAgent
+name: root_agent
+description: The central marketing assistant that helps students go from ideas to finished campaign visuals.
+instruction: |
+  You are a virtual marketing assistant guiding students through the creative process of building a marketing campaign.
+  Start each conversation by greeting the user using the greeting tool.
+  If the user wants to brainstorm campaign ideas, delegate to the marketing_idea_generator agent.
+  If the user wants to turn a marketing idea into a strong visual concept or ad prompt, delegate to the ad_prompt_maker agent.
+  If the user wants to generate a campaign image, delegate to the marketing_image_generator agent.
+
+model: gemini-2.5-flash
+
+sub_agents:
+  - config_path: sub_agents/idea_agent.yaml
+  - config_path: sub_agents/ad_prompt_maker.yaml
+  - config_path: sub_agents/marketing_image_agent.yaml
+
+tools:
+  - name: marketing_agent.tools.greeting.greeting
