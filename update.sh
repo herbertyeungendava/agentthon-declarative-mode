@@ -22,23 +22,3 @@ curl -X PATCH \
       }
     }
   }'
-
-
-
-  curl -X DELETE \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  -H "Content-Type: application/json" \
-  -H "X-Goog-User-Project: p-dev-gcp-syd-agentthon-s2gw-1" \
-  "https://discoveryengine.googleapis.com/v1alpha/projects/p-dev-gcp-syd-agentthon-s2gw-1/locations/global/collections/default_collection/engines/GEMINI_ENTERPRISE_APP/assistants/default_assistant/agents/JSON_RESPONSE_ID" \
-  -d '{
-    "displayName": "DISPLAY_NAME",
-    "description": "DESCRIPTION",
-    "adk_agent_definition": {
-      "tool_settings": {
-        "tool_description": "TOOL_DESCRIPTION"
-      },
-      "provisioned_reasoning_engine": {
-        "reasoning_engine": "projects/p-dev-gcp-syd-agentthon-s2gw-1/locations/us-central1/reasoningEngines/6304041121760673792"
-      }
-    }
-  }'
